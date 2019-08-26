@@ -11,7 +11,7 @@ import javax.inject.Inject
  *
  * @author Hannes Dorfmann
  */
-class SearchPresenter @Inject constructor(private val modelFunc: (@JWildcard Observable<String>) -> @JvmWildcard Observable<SearchModel>) : MvpBasePresenter<SearchView>() {
+class SearchPresenter @Inject constructor(private val modelFunc: (Observable<String>) -> @JvmWildcard Observable<SearchModel>) : MvpBasePresenter<SearchView>() {
 
   lateinit var subscription: Subscription
 

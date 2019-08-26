@@ -1,12 +1,12 @@
 package com.hannesdorfmann.mvi
 
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import butterknife.bindView
+import kotterknife.bindView
 import com.hannesdorfmann.mvi.github.GithubRepo
 import com.squareup.picasso.Picasso
 
@@ -25,7 +25,6 @@ class SearchResultViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 }
 
 class SearchResultAdapter(private val layoutInflater: LayoutInflater) : RecyclerView.Adapter<SearchResultViewHolder>() {
-
   var items: List<GithubRepo>? = null
 
   override fun onBindViewHolder(vh: SearchResultViewHolder, pos: Int) {
@@ -36,7 +35,7 @@ class SearchResultAdapter(private val layoutInflater: LayoutInflater) : Recycler
         R.color.image_placeholder).fit().into(vh.avatar)
   }
 
-  override fun onCreateViewHolder(parent: ViewGroup?,
+  override fun onCreateViewHolder(parent: ViewGroup,
       viewType: Int): SearchResultViewHolder = SearchResultViewHolder(
       layoutInflater.inflate(R.layout.item_search_result, parent, false))
 
