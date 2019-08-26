@@ -1,14 +1,15 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
-  compileSdkVersion 23
-  buildToolsVersion "23.0.2"
+  compileSdkVersion 28
 
   defaultConfig {
     applicationId "com.hannesdorfmann.mvi"
-    minSdkVersion 14
-    targetSdkVersion 23
+    minSdkVersion 21
+    targetSdkVersion 28
     versionCode 1
     versionName "1.0"
   }
@@ -28,33 +29,21 @@ kapt {
 }
 
 dependencies {
-  compile 'com.android.support:appcompat-v7:23.2.0'
-  compile 'com.hannesdorfmann.mosby:mvp:2.0.1'
-  compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-  compile 'com.jakewharton.rxbinding:rxbinding-kotlin:0.4.0'
-  compile 'com.jakewharton.rxbinding:rxbinding-recyclerview-v7-kotlin:0.4.0'
-  compile 'com.jakewharton:kotterknife:0.1.0-SNAPSHOT'
+  implementation 'androidx.appcompat:appcompat:1.0.2'
+  implementation 'com.hannesdorfmann.mosby:mvp:2.0.1'
+  implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+  implementation 'com.jakewharton.rxbinding:rxbinding-kotlin:0.4.0'
+  implementation 'com.jakewharton.rxbinding:rxbinding-recyclerview-v7-kotlin:0.4.0'
+  implementation 'com.jakewharton:kotterknife:0.1.0-SNAPSHOT'
 
-  compile 'com.squareup.retrofit2:converter-moshi:2.0.0-beta4'
-  compile 'com.squareup.retrofit2:adapter-rxjava:2.0.0-beta4'
-  compile 'com.squareup.retrofit2:retrofit:2.0.0-beta4'
+  implementation 'com.squareup.retrofit2:converter-moshi:2.0.0-beta4'
+  implementation 'com.squareup.retrofit2:adapter-rxjava:2.0.0-beta4'
+  implementation 'com.squareup.retrofit2:retrofit:2.0.0-beta4'
 
-  compile 'com.squareup.picasso:picasso:2.5.2'
+  implementation 'com.squareup.picasso:picasso:2.5.2'
 
-  compile 'com.google.dagger:dagger:2.0.2'
+  implementation 'com.google.dagger:dagger:2.0.2'
   kapt 'com.google.dagger:dagger-compiler:2.0.2'
-  provided 'javax.annotation:jsr250-api:1.0'
+  compileOnly 'javax.annotation:jsr250-api:1.0'
 }
 
-buildscript {
-  ext.kotlin_version = '1.0.0'
-  repositories {
-    mavenCentral()
-  }
-  dependencies {
-    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-  }
-}
-repositories {
-  mavenCentral()
-}

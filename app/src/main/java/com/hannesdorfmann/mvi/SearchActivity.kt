@@ -1,12 +1,12 @@
 package com.hannesdorfmann.mvi
 
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
-import android.support.v7.widget.Toolbar
 import android.view.View
 import android.widget.Toast
-import butterknife.bindView
+import androidx.appcompat.widget.Toolbar
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import kotterknife.bindView
 import com.hannesdorfmann.mosby.mvp.MvpActivity
 import com.jakewharton.rxbinding.widget.RxSearchView
 import rx.Observable
@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit
 class SearchActivity : SearchView, MvpActivity<SearchView, SearchPresenter>() {
 
   private val editSearch: android.widget.SearchView by bindView(R.id.searchView)
-  private val recyclerView: RecyclerView  by bindView(R.id.recyclerView)
+  private val recyclerView: RecyclerView by bindView(R.id.recyclerView)
   private val loadingView: View by bindView(R.id.loadingView)
   private val toolbar: Toolbar by bindView(R.id.toolbar)
   private lateinit var adapter: SearchResultAdapter
